@@ -9,14 +9,20 @@ public class Util {
             "useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private final static String USERNAME = "root";
     private final static String PASSWORD = "24718947";
+    private static Connection connection;
 
     public Util() {
 
     }
 
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() {
 
-        return DriverManager.getConnection(HOST, USERNAME, PASSWORD);
+        try {
+            connection = DriverManager.getConnection(HOST, USERNAME, PASSWORD);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return connection;
     }
 
 }
