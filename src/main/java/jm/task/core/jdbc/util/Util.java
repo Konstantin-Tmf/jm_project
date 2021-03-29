@@ -16,7 +16,7 @@ public class Util {
 
     public static Connection getConnection() throws SQLException {
 
-
+        return DriverManager.getConnection(HOST, USERNAME, PASSWORD);
     }
 
 }
